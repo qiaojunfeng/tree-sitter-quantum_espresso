@@ -1,0 +1,140 @@
+==================
+namelist
+==================
+
+&CONTROL
+  etot_conv_thr =   2.0000000000d-05
+/
+
+---
+
+(document
+  (namelist
+    (identifier)
+    (pair
+      (identifier)
+      (number))))
+
+==================
+namelist two pairs in one line
+==================
+
+&CONTROL
+  etot_conv_thr =   2.0000000000d-05, abc = 'string'
+/
+
+---
+
+(document
+  (namelist
+    (identifier)
+    (pair
+      (identifier)
+      (number))
+    (pair
+      (identifier)
+      (string))))
+
+==================
+namelist path
+==================
+
+&CONTROL
+  pseudo_dir = '../../pseudo/'
+  pseudo_dir = "./a"
+  pseudo_dir = "'b'"
+  pseudo_dir = '"b"'
+/
+
+---
+
+(document
+  (namelist
+    (identifier)
+      (pair
+        (identifier)
+        (string))
+      (pair
+        (identifier)
+        (string))
+      (pair
+        (identifier)
+        (string))
+      (pair
+        (identifier)
+        (string))))
+
+
+==================
+namelist multiple pairs
+==================
+
+&CONTROL
+  calculation = 'scf'
+  etot_conv_thr =   2.0000000000d-05
+  forc_conv_thr =   0.0001
+  outdir = './out/'
+  prefix = 'Cu'
+  pseudo_dir = '../../pseudo/'
+  tprnfor = .true.
+  tstress = .false.
+  verbosity = 'high'
+/
+
+---
+
+(document
+  (namelist
+    (identifier)
+    (pair
+      (identifier)
+      (string))
+    (pair
+      (identifier)
+      (number))
+    (pair
+      (identifier)
+      (number))
+    (pair
+      (identifier)
+      (string))
+    (pair
+      (identifier)
+      (string))
+    (pair
+      (identifier)
+      (string))
+    (pair
+      (identifier)
+      (boolean))
+    (pair
+      (identifier)
+      (boolean))
+    (pair
+      (identifier)
+      (string))))
+
+==================
+namelist multiple
+==================
+
+&CONTROL
+  calculation = 'scf'
+/
+&CONTROL
+  etot_conv_thr =   2.0000000000d-05
+/
+
+---
+
+(document
+  (namelist
+    (identifier)
+    (pair
+      (identifier)
+      (string)))
+  (namelist
+    (identifier)
+    (pair
+      (identifier)
+      (number))))

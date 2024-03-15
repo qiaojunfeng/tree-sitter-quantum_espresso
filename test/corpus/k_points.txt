@@ -1,0 +1,45 @@
+==================
+block k_points
+==================
+
+K_POINTS automatic
+4 4 4 0 0 0
+
+---
+
+(document
+  (k_points
+    (identifier)
+    (vec3
+      (number)
+      (number)
+      (number))
+    (vec3
+      (number)
+      (number)
+      (number))))
+
+==================
+block k_points with comments
+==================
+
+K_POINTS automatic ! 1
+! 2
+4 4 4 0 0 0 ! 3
+
+---
+
+(document
+  (k_points
+    (identifier)
+    (comment)
+    (comment)
+    (vec3
+      (number)
+      (number)
+      (number))
+    (vec3
+      (number)
+      (number)
+      (number))
+    (comment)))

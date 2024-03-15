@@ -1,0 +1,57 @@
+==================
+block cell_parameters
+==================
+
+CELL_PARAMETERS angstrom
+   -1.4430983361036    1.4430983361036    1.3630841209524
+    1.4430983361036   -1.4430983361036    1.3630841209524
+    1.4430983361036    1.4430983361036   -1.3630841209524
+
+---
+
+(document
+  (cell_parameters
+    (identifier)
+    (vec3
+      (number)
+      (number)
+      (number))
+    (vec3
+      (number)
+      (number)
+      (number))
+    (vec3
+      (number)
+      (number)
+      (number))))
+
+==================
+block cell_parameters with comment
+==================
+
+CELL_PARAMETERS angstrom ! 1
+! 2
+   -1.4430983361036    1.4430983361036    1.3630841209524
+    1.4430983361036   -1.4430983361036    1.3630841209524 ! 3
+    1.4430983361036    1.4430983361036   -1.3630841209524
+
+---
+
+(document
+  (cell_parameters
+    (identifier)
+    (comment)
+    (comment)
+    (vec3
+      (number)
+      (number)
+      (number))
+    (vec3
+      (number)
+      (number)
+      (number))
+    (comment)
+    (vec3
+      (number)
+      (number)
+      (number))))

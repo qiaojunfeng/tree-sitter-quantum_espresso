@@ -1,0 +1,67 @@
+{
+  "name": "tree-sitter-quantum_espresso",
+  "version": "0.1.0",
+  "description": "Quantum ESPRESSO files grammar for tree-sitter",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "parser",
+    "quantum_espresso",
+    "tree-sitter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qiaojunfeng/tree-sitter-quantum_espresso.git"
+  },
+  "homepage": "https://github.com/qiaojunfeng/tree-sitter-quantum_espresso#readme",
+  "author": {
+    "name": "Junfeng Qiao",
+    "email": "qiaojunfeng@outlook.com",
+    "url": "https://github.com/qiaojunfeng"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "node-gyp-build": "^4.8.0",
+    "node-addon-api": "^7.1.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.1",
+    "prebuildify": "^6.0.0"
+  },
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp-build",
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse",
+    "prebuildify": "prebuildify --napi --strip",
+    "install": "node-gyp-build"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.quantum_espresso",
+      "file-types": [
+        "in"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
+      "injection-regex": "^quantum_espresso$"
+    }
+  ]
+}

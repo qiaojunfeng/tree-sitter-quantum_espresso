@@ -1,0 +1,33 @@
+==================
+block atomic_species
+==================
+
+ATOMIC_SPECIES
+Cu     55.85 cu_pbesol_v1.2.uspp.F.UPF
+
+---
+
+(document
+  (atomic_species
+    (identifier)
+    (number)
+    (string)))
+
+==================
+block atomic_species with comment
+==================
+
+ATOMIC_SPECIES ! 1
+! 2
+Cu     55.85 cu_pbesol_v1.2.uspp.F.UPF ! 3
+
+---
+
+(document
+  (atomic_species
+    (comment)
+    (comment)
+    (identifier)
+    (number)
+    (string)
+    (comment)))

@@ -1,0 +1,46 @@
+==================
+block atomic_positions
+==================
+
+ATOMIC_POSITIONS crystal
+Cu         0.0000000000       0.0000000000       0.0000000000
+
+---
+
+(document
+  (atomic_positions
+    (identifier)
+    (identifier)
+    (vec3
+      (number)
+      (number)
+      (number))))
+
+==================
+block atomic_positions with comments
+==================
+
+ATOMIC_POSITIONS crystal ! 1
+
+Cu         0.0000000000       0.0000000000       0.0000000000
+! 2
+Cu         0.0000000000       0.0000000000       0.0000000000 ! 3
+
+---
+
+(document
+  (atomic_positions
+    (identifier)
+    (comment)
+    (identifier)
+    (vec3
+      (number)
+      (number)
+      (number))
+    (comment)
+    (identifier)
+    (vec3
+      (number)
+      (number)
+      (number))
+    (comment)))
