@@ -45,7 +45,7 @@ CELL_PARAMETERS angstrom
 
 (document
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (string))
@@ -77,7 +77,7 @@ CELL_PARAMETERS angstrom
       (identifier)
       (string)))
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (number))
@@ -106,7 +106,7 @@ CELL_PARAMETERS angstrom
       (identifier)
       (string)))
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (number))

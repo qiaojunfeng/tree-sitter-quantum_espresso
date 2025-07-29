@@ -17,6 +17,23 @@ Cu         0.0000000000       0.0000000000       0.0000000000
       (number))))
 
 ==================
+block atomic_positions default
+==================
+
+ATOMIC_POSITIONS
+Cu         0.0000000000       0.0000000000       0.0000000000
+
+---
+
+(document
+  (atomic_positions
+    (identifier)
+    (vec3
+      (number)
+      (number)
+      (number))))
+
+==================
 block atomic_positions with comments
 ==================
 

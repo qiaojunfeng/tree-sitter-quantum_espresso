@@ -16,6 +16,7 @@ module.exports = grammar({
           $.atomic_positions,
           $.cell_parameters,
           $.k_points,
+          $.hubbard,
           // empty line or single-line comment
           $._newline
         )
@@ -39,6 +40,7 @@ module.exports = grammar({
     _keyword_cell_parameters: ($) =>
       alias(ignoreCase("cell_parameters"), "keyword"),
     _keyword_k_points: ($) => alias(ignoreCase("k_points"), "keyword"),
+    _keyword_hubbard: ($) => alias(ignoreCase("hubbard"), "keyword"),
     _op_eq: ($) => alias("=", "="),
     _op_comma: ($) => alias(",", ","),
     boolean: ($) =>
@@ -55,8 +57,11 @@ module.exports = grammar({
         seq("'", /[\w\d\s\t_\.\/\\\-\+"]*/, "'"),
         /[\w\d_\.\/\\\-\+]+/  // no quote, no space
       ),
+    // eg. CONTROL, System
     keyword: ($) => /[a-zA-Z][0-9a-zA-Z_]*/,
-    identifier: ($) => /[\p{L}\w][\p{L}\w]*/, // allow unicode
+    // allow unicode, '(', ')' and '-'
+    // eg. ibrav, conv_thr, (ortho-atomic), automatic
+    identifier: ($) => /[\p{L}\w(][\p{L}\w\-)]*/,
 
     pair: ($) =>
       seq(
@@ -106,7 +111,7 @@ module.exports = grammar({
       prec.right(
         // consume as much empty lines as possible
         seq(
-          seq($._keyword_atomic_positions, $.identifier, $._newline),
+          seq($._keyword_atomic_positions, optional($.identifier), $._newline),
           repeat(
             choice(
               seq($._str_vec3, $._newline),
@@ -120,11 +125,29 @@ module.exports = grammar({
       prec.right(
         // consume as much empty lines as possible
         seq(
-          seq($._keyword_k_points, $.identifier, $._newline),
+          seq($._keyword_k_points, optional($.identifier), $._newline),
           repeat(
             choice(
               seq($.vec3, $.vec3, $._newline),
               $._newline // empty line
+            )
+          )
+        )
+      ),
+
+    hubbard: ($) =>
+      prec.right(
+        // consume as much empty lines as possible
+        seq(
+          seq($._keyword_hubbard, optional($.identifier), $._newline),
+          repeat(
+            choice(
+              // seq($.identifier, $.number, $.string, $._newline),
+              // Hubbard U
+              seq($.string, $.string, $.number, $._newline),
+              // Hubbard V
+              seq($.string, $.string, $.string, $.number, $.number, $.number, $._newline),
+              $._newline
             )
           )
         )
@@ -148,7 +171,7 @@ module.exports = grammar({
       prec.right(
         // consume as much empty lines as possible
         seq(
-          seq($._keyword_cell_parameters, $.identifier, $._newline),
+          seq($._keyword_cell_parameters, optional($.identifier), $._newline),
           optional($._block_matrix)
         )
       ),

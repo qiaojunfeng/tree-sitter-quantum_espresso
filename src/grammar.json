@@ -28,6 +28,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "hubbard"
+          },
+          {
+            "type": "SYMBOL",
             "name": "_newline"
           }
         ]
@@ -91,6 +95,15 @@
       "content": {
         "type": "PATTERN",
         "value": "[kK][_][pP][oO][iI][nN][tT][sS]"
+      },
+      "named": false,
+      "value": "keyword"
+    },
+    "_keyword_hubbard": {
+      "type": "ALIAS",
+      "content": {
+        "type": "PATTERN",
+        "value": "[hH][uU][bB][bB][aA][rR][dD]"
       },
       "named": false,
       "value": "keyword"
@@ -187,7 +200,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[\\p{L}\\w][\\p{L}\\w]*"
+      "value": "[\\p{L}\\w(][\\p{L}\\w\\-)]*"
     },
     "pair": {
       "type": "SEQ",
@@ -442,8 +455,16 @@
                 "name": "_keyword_atomic_positions"
               },
               {
-                "type": "SYMBOL",
-                "name": "identifier"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
               },
               {
                 "type": "SYMBOL",
@@ -493,8 +514,16 @@
                 "name": "_keyword_k_points"
               },
               {
-                "type": "SYMBOL",
-                "name": "identifier"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
               },
               {
                 "type": "SYMBOL",
@@ -517,6 +546,106 @@
                     {
                       "type": "SYMBOL",
                       "name": "vec3"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_newline"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_newline"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "hubbard": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_keyword_hubbard"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_newline"
+              }
+            ]
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "string"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "string"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "number"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_newline"
+                    }
+                  ]
+                },
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "string"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "string"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "string"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "number"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "number"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "number"
                     },
                     {
                       "type": "SYMBOL",
@@ -582,8 +711,16 @@
                 "name": "_keyword_cell_parameters"
               },
               {
-                "type": "SYMBOL",
-                "name": "identifier"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
               },
               {
                 "type": "SYMBOL",
