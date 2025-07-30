@@ -10,7 +10,7 @@ namelist
 
 (document
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (number))))
@@ -27,7 +27,7 @@ namelist two pairs in one line
 
 (document
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (number))
@@ -50,7 +50,7 @@ namelist path
 
 (document
   (namelist
-    (identifier)
+    (keyword)
       (pair
         (identifier)
         (string))
@@ -85,7 +85,7 @@ namelist multiple pairs
 
 (document
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (string))
@@ -129,12 +129,12 @@ namelist multiple
 
 (document
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (string)))
   (namelist
-    (identifier)
+    (keyword)
     (pair
       (identifier)
       (number))))

@@ -1,0 +1,87 @@
+==================
+block hubbard U
+==================
+
+HUBBARD atomic
+U Ni-3d 5.0
+
+---
+
+(document
+  (hubbard
+    (identifier)
+    (string)
+    (string)
+    (number)))
+
+==================
+block hubbard V default
+==================
+
+HUBBARD
+V Co-3d O-2p 1 19 0.75
+
+---
+
+(document
+  (hubbard
+    (string)
+    (string)
+    (string)
+    (number)
+    (number)
+    (number)))
+
+==================
+block hubbard with comments
+==================
+
+HUBBARD atomic ! 1
+V Co-3d O-2p 1 19 0.75 ! 2
+! 3
+V Co-3d O-2p 1 19 0.75
+
+---
+
+(document
+  (hubbard
+    (identifier)
+    (comment)
+    (string)
+    (string)
+    (string)
+    (number)
+    (number)
+    (number)
+    (comment)
+    (comment)
+    (string)
+    (string)
+    (string)
+    (number)
+    (number)
+    (number)))
+
+==================
+block hubbard mix
+==================
+
+HUBBARD (ortho-atomic)
+  U Co-3d 7.70
+  V Co-3d O-2p 1 19 0.75
+
+---
+
+(document
+  (hubbard
+    (identifier)
+    (string)
+    (string)
+    (number)
+    (string)
+    (string)
+    (string)
+    (number)
+    (number)
+    (number)))
+

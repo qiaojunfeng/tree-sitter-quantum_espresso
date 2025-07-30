@@ -2,7 +2,7 @@
 block k_points
 ==================
 
-K_POINTS automatic
+K_POINTS tpiba_c
 4 4 4 0 0 0
 
 ---
