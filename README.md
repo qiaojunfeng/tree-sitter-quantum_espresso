@@ -25,13 +25,13 @@ Provides syntax highlighting for QE input files, e.g., `scf.in`.
 
 ```shell
 # Install dev dependencies
-npm build
+npm install
 
 # Generate parser & language bindings
-tree-sitter generate
+tree-sitter run generate
 
 # Test grammar
-tree-sitter test
+tree-sitter run test
 ```
 
 ## Reference
